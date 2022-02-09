@@ -1,4 +1,9 @@
-## These are the requirements of the whole program and is divided into High level and the corresponding Low Level reapectively
+## The main features of the EV Calculator are:
+- Determine the torque and RPM of the required vehicle
+- Determine the corresponding requirement of the battery,motor and the powertrain.
+- Understanding and analysis of the whole Electric Vehicle.
+
+## These are the requirements of the whole program and are divided into High levels and the corresponding Low Levels respectively
 ###### HL1 - Calculate the Maximum wheel torque and Maximum wheel RPM of the Vehicle. 
 ###### HL2 - Help in Selection of Motor and Batteries (Helps in finding the Torque and RPM constants).
 ###### HL3 - Calculate the total batteries required for the desired performance.
