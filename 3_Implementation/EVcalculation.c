@@ -10,6 +10,7 @@
  */
 #include <stdio.h>
 #include "EVstruct.h"
+#include "EVcalculation.h"
 
 /* This function takes the user defined input list number 
     and defines the total number of battery required in Series
