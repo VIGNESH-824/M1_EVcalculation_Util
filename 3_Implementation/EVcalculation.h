@@ -1,9 +1,9 @@
 /**
  * @file EVcalculation.h
  * @author VIGNESH BHAT (vigneshb824@gmail.com)
- * @brief This is a header file including all the function prototypes and declaration
+ * @brief 
  * @version 0.1
- * @date 2022-02-08
+ * @date 2022-02-10
  * 
  * @copyright Copyright (c) 2022
  * 
@@ -12,18 +12,14 @@
 #define EVCALCULATION_H
 
 #include <stdio.h>
-#include <math.h>
+#include "EVstruct.h"
+#include <stdlib.h>
 
-typedef struct bat_val
-{
-    int series;
-    int parallel;
-}battery_value;
+battery_value req_value(int list_num, int voltage, int current);
 
-typedef struct v_p
-{
-    int RPM;
-    int torque;
-}vehicle_param;
+vehicle_param vehicle_param1(int kerb_weight, int roll_res, int front_area, int vel_des, int acc_des, int tyre_rad, int Cd);
 
+enum status display(char* input);
+
+electrical_param electrical_param1(vehicle_param val, int motor_num);
 #endif

@@ -9,7 +9,7 @@
  * 
  */
 #include <stdio.h>
-#include "EVcalculation.h"
+#include "EVstruct.h"
 
 /* This function takes the user defined input list number 
     and defines the total number of battery required in Series
@@ -57,3 +57,35 @@ vehicle_param vehicle_param1(int kerb_weight, int roll_res, int front_area, int 
     return(vehicle_param2);
 }
 
+enum status display(char* input){
+    if((input == "Y") || (input = "y")){
+        printf("The option for batteries are:\n1. Samsung Lithium ion (18650)\tV = 4.2V I = 2.8Ah\t350 per cell\n2. Molicel Lithium ion (21700)\tV = 4.2V I = 4.2Ah\t700 per cell\n");
+        printf("The option for Motors are:\n1. Saietta 119R\tPermanent Magnet DC Motor\n2. Emrax 228\tPermanent Magnet Synchronous Motor");
+        success;
+    }
+    else if((input == "N") || (input = "n")){
+        error;
+    }
+}
+
+electrical_param electrical_param1(vehicle_param val, int motor_num){
+    float torque_const;
+    float rpm_const;
+    if(motor_num == 1){
+        torque_const = 0.2;
+        rpm_const = 9;
+    }
+    else if(motor_num == 2){
+        torque_const = 0.75;
+        rpm_const = 11;
+    }
+    else{
+        printf("Invalid Input");
+    }
+
+    electrical_param electrical_param2 = {0,0};
+
+    electrical_param2.req_curr = val.torque/torque_const;
+    electrical_param2.req_volt = val.RPM/rpm_const;
+    return(electrical_param2);
+}
