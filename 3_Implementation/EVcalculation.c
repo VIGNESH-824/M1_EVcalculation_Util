@@ -15,20 +15,20 @@
 /* This function takes the user defined input list number 
     and defines the total number of battery required in Series
     and Parallel for the battery pack */
-battery_value req_value(int list_num, int voltage, int current){
+battery_value req_value(int list_num, float voltage, float current){
 
     battery_value total_cell = {0,0};
 
     if(list_num == 1){
         /* The selected battery is Samsung 18650 lithium ion NMC cells */
         
-        total_cell.series = (voltage/4.2);
-        total_cell.parallel = (current/2.6);
+        total_cell.series = (int)(voltage/4.2);
+        total_cell.parallel = (int)(current/2.6);
     }
     else if(list_num == 2){
         /* The selected battery is Molicel 21700 lithium ion NCA cells */
-        total_cell.series = (voltage/4.2);
-        total_cell.parallel = (current/4.2);
+        total_cell.series = (int)(voltage/4.2);
+        total_cell.parallel = (int)(current/4.2);
     }
 
     /* Provision for expanding the number of choices for cells
@@ -66,6 +66,7 @@ enum status display(char* input){
     }
     else if((input == "N") || (input = "n")){
         error;
+        exit(0);
     }
 }
 

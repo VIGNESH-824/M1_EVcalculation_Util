@@ -15,7 +15,7 @@
 #include "EVstruct.h"
 #include <stdlib.h>
 
-battery_value req_value(int list_num, int voltage, int current);
+battery_value req_value(int list_num, float voltage, float current);
 
 vehicle_param vehicle_param1(int kerb_weight, int roll_res, int front_area, int vel_des, int acc_des, int tyre_rad, int Cd);
 
