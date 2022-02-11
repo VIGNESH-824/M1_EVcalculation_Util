@@ -71,8 +71,9 @@ enum status display(char input){
 }
 
 electrical_param electrical_param1(vehicle_param val, int motor_num){
-    float torque_const;
-    float rpm_const;
+    float torque_const = 0;
+    float rpm_const = 0;
+
     if(motor_num == 1){
         torque_const = 0.2;
         rpm_const = 9;
@@ -87,7 +88,7 @@ electrical_param electrical_param1(vehicle_param val, int motor_num){
 
     electrical_param electrical_param2 = {0,0};
     int Gr= 8; //Gear Ratio
-    electrical_param2.req_curr = val.torque/(torque_const*Gr);
-    electrical_param2.req_volt = (val.RPM*Gr)/rpm_const;
+    electrical_param2.req_curr = val.torque/((float)torque_const * (int) Gr);
+    electrical_param2.req_volt = (val.RPM*Gr)/(float)rpm_const;
     return(electrical_param2);
 }
