@@ -10,5 +10,8 @@ An utility to help for calculation of Power Train components of an Electric Vehi
 ## Build
 [![Build_check](https://github.com/VIGNESH-824/M1_EVcalculation_Util/actions/workflows/Build_check.yml/badge.svg)](https://github.com/VIGNESH-824/M1_EVcalculation_Util/actions/workflows/Build_check.yml)
 
-## Static Analysis
+## Static Check
 [![Cppcheck](https://github.com/VIGNESH-824/M1_EVcalculation_Util/actions/workflows/cppcheck.yml/badge.svg)](https://github.com/VIGNESH-824/M1_EVcalculation_Util/actions/workflows/cppcheck.yml)
+
+## Dynamic Check
+[![Valgrind](https://github.com/VIGNESH-824/M1_EVcalculation_Util/actions/workflows/dynamiccheck.yml/badge.svg)](https://github.com/VIGNESH-824/M1_EVcalculation_Util/actions/workflows/dynamiccheck.yml)
