@@ -17,9 +17,10 @@
 
 battery_value req_value(int list_num, float voltage, float current);
 
-vehicle_param vehicle_param1(int kerb_weight, int roll_res, int front_area, int vel_des, int acc_des, int tyre_rad, int Cd);
+vehicle_param vehicle_param1(float kerb_weight, float roll_res, float front_area, float vel_des, float acc_des, float tyre_rad, float Cd);
 
-enum status display(char* input);
+enum status display(char input);
 
 electrical_param electrical_param1(vehicle_param val, int motor_num);
+
 #endif

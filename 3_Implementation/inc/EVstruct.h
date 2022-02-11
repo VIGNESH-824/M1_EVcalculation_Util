@@ -22,8 +22,8 @@ typedef struct bat_val
 
 typedef struct v_p
 {
-    int RPM;
-    int torque;
+    float RPM;
+    float torque;
 }vehicle_param;
 
 enum status{error, success};

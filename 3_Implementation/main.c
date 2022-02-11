@@ -24,7 +24,8 @@ int main(){
     scanf("%s", &input); 
 
     display(input); // Here we are promted to choose the battery and the motor
-    scanf("%d\n%d",&bat, &mot);
+    printf("\nPlease enter the number mentioned in the list for your corresponding component:\n");
+    scanf("%d %d",&bat, &mot);
 
     printf("Please enter your vehicle parameter:\n");
     float kerb_weight, roll_res, front_area, vel_des, acc_des, tyre_rad, Cd;
@@ -40,8 +41,9 @@ int main(){
     scanf("%f",&acc_des);
     printf("\nTyre Radius = ");
     scanf("%f",&tyre_rad);
-    printf("Drag Coefficient = ");
+    printf("\nDrag Coefficient = ");
     scanf("%f",&Cd);
+    printf("\n");
 
     vehicle_param my_vehicle_param = vehicle_param1(kerb_weight, roll_res, front_area, vel_des, acc_des, tyre_rad, Cd);
     /* my_vehicle_param.torque, my_vehicle_param.rpm */
@@ -50,6 +52,17 @@ int main(){
     /* my_electrical_param.req_voltage,my_electrical_param.req_curr */
 
     battery_value my_battery_value = req_value(bat, my_electrical_param.req_volt, my_electrical_param.req_curr);
-    /* my_battery_value.series,my_battery_value.parallel */    
+    /* my_battery_value.series,my_battery_value.parallel */
 
+    float power_hp = (my_vehicle_param.torque * my_vehicle_param.RPM)/746;   //Output power of the vehicle in hp
+    printf("The calculated Parameters of your Electric vehicle is as follows\n");
+    printf("1. The torque of the given vehicle on wheels is: %.2f\n", my_vehicle_param.torque);
+    printf("2. The RPM of the given vehicle on wheels is: %.2f\n", my_vehicle_param.RPM);
+    printf("3. The required voltage from the battery pack is: %.2f\n",my_electrical_param.req_volt);
+    printf("4. The required current from the battery pack is: %.2f\n",my_electrical_param.req_curr);
+    printf("5. The number of selected batteries required in 'Series' are: %d\n",my_battery_value.series);
+    printf("6. The number of selected batteries required in 'Parallel' are: %d\n",my_battery_value.parallel);
+    printf("7. The power of the whole vehicle in hp: %.2f\n",power_hp);
+
+    return 0;
 }

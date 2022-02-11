@@ -42,11 +42,10 @@ battery_value req_value(int list_num, float voltage, float current){
 
 /* This function calculates and return the value of the required torque and
     RPM of the function using the maximum force and tyre radius provided by the user*/
-vehicle_param vehicle_param1(int kerb_weight, int roll_res, int front_area, int vel_des, int acc_des, int tyre_rad, int Cd){
+vehicle_param vehicle_param1(float kerb_weight, float roll_res, float front_area, float vel_des, float acc_des, float tyre_rad, float Cd){
     float F_tot;
-    float F_aero = (1/2)*front_area*Cd*1.225*(vel_des)*(vel_des);
-    float gross_weight = kerb_weight*9.81;
-    float F_roll = 0.015*gross_weight;
+    float F_aero = 0.5*front_area*Cd*(vel_des)*(vel_des);
+    float F_roll = roll_res*kerb_weight;
     float F_acc = kerb_weight*acc_des;
 
     F_tot = F_aero + F_roll + F_acc;
@@ -54,19 +53,20 @@ vehicle_param vehicle_param1(int kerb_weight, int roll_res, int front_area, int 
     vehicle_param vehicle_param2 = {0,0};
 
     vehicle_param2.torque = F_tot*tyre_rad;
-    vehicle_param2.RPM = vel_des*tyre_rad;
+    vehicle_param2.RPM = 9.55*(vel_des)/(tyre_rad);
     return(vehicle_param2);
 }
 
-enum status display(char* input){
-    if((input == "Y") || (input = "y")){
+enum status display(char input){
+    if((input == 'Y') || (input == 'y')){
         printf("The option for batteries are:\n1. Samsung Lithium ion (18650)\tV = 4.2V I = 2.8Ah\t350 per cell\n2. Molicel Lithium ion (21700)\tV = 4.2V I = 4.2Ah\t700 per cell\n");
         printf("The option for Motors are:\n1. Saietta 119R\tPermanent Magnet DC Motor\n2. Emrax 228\tPermanent Magnet Synchronous Motor");
         success;
     }
-    else if((input == "N") || (input = "n")){
+    else if((input == 'N') || (input == 'n')){
+        printf("Auf Weidersehen! my friend!");
         error;
-        exit(0);
+        exit(1);
     }
 }
 
@@ -86,8 +86,8 @@ electrical_param electrical_param1(vehicle_param val, int motor_num){
     }
 
     electrical_param electrical_param2 = {0,0};
-
-    electrical_param2.req_curr = val.torque/torque_const;
-    electrical_param2.req_volt = val.RPM/rpm_const;
+    int Gr= 8; //Gear Ratio
+    electrical_param2.req_curr = val.torque/(torque_const*Gr);
+    electrical_param2.req_volt = (val.RPM*Gr)/rpm_const;
     return(electrical_param2);
 }
