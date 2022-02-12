@@ -29,17 +29,17 @@ int main(){
 
     printf("Please enter your vehicle parameter:\n");
     float kerb_weight, roll_res, front_area, vel_des, acc_des, tyre_rad, Cd;
-    printf("kerb weight = ");
+    printf("kerb weight(kgs)= ");
     scanf("%f",&kerb_weight);
     printf("\nRolling Resistance = ");
     scanf("%f",&roll_res);
-    printf("\nFrontal Area = ");
+    printf("\nFrontal Area(m^2) = ");
     scanf("%f",&front_area);
-    printf("\nDesired Velocity = ");
+    printf("\nDesired Velocity(m/s)= ");
     scanf("%f",&vel_des);
-    printf("\nDesired Acceleration = ");
+    printf("\nDesired Acceleration(m/s^2) = ");
     scanf("%f",&acc_des);
-    printf("\nTyre Radius = ");
+    printf("\nTyre Radius(m)= ");
     scanf("%f",&tyre_rad);
     printf("\nDrag Coefficient = ");
     scanf("%f",&Cd);
@@ -56,13 +56,13 @@ int main(){
 
     float power_hp = (my_vehicle_param.torque * my_vehicle_param.RPM)/746;   //Output power of the vehicle in hp
     printf("The calculated Parameters of your Electric vehicle is as follows\n");
-    printf("1. The torque of the given vehicle on wheels is: %.2f\n", my_vehicle_param.torque);
-    printf("2. The RPM of the given vehicle on wheels is: %.2f\n", my_vehicle_param.RPM);
-    printf("3. The required voltage from the battery pack is: %.2f\n",my_electrical_param.req_volt);
-    printf("4. The required current from the battery pack is: %.2f\n",my_electrical_param.req_curr);
+    printf("1. The torque of the given vehicle on wheels is: %.2f Nm\n", my_vehicle_param.torque);
+    printf("2. The RPM of the given vehicle on wheels is: %.2f rpm\n", my_vehicle_param.RPM);
+    printf("3. The required voltage from the battery pack is: %.2f V\n",my_electrical_param.req_volt);
+    printf("4. The required current from the battery pack is: %.2f A\n",my_electrical_param.req_curr);
     printf("5. The number of selected batteries required in 'Series' are: %d\n",my_battery_value.series);
     printf("6. The number of selected batteries required in 'Parallel' are: %d\n",my_battery_value.parallel);
-    printf("7. The power of the whole vehicle in hp: %.2f\n",power_hp);
+    printf("7. The power of the whole vehicle in hp: %.2f hp\n",power_hp);
 
     return 0;
 }
