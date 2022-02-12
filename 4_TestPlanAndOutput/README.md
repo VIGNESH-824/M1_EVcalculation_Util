@@ -5,7 +5,7 @@
 
 ###### For the given outputs the following test plan are to be followed
 * O/P1 - 
-    * TestPlan1 - input parameters - (Kerb Weight=250, Rolling Resistance=0.015, Frontal Area=1.3, Desired Velocity=60, Desired Acceleration=8.3, Tire Radius=0.25, Cd=0.9)
+    * TestPlan1 - input parameters - (250, 0.015, 1.3, 60, 8.3, 0.25, 0.9)
          * Expected Output - (1046.187500, 2292.000000)
-    * TestPlan2 - input parameters - (Kerb Weight=260, Rolling Resistance=0.014, Frontal Area=2, Desired Velocity=40, Desired Acceleration=10, Tire Radius=0.23, Cd=0.9)
+    * TestPlan2 - input parameters - (260, 0.014, 2, 40, 10, 0.23, 0.9)
          * Expected Output - (930.037231, 1660.869507)
